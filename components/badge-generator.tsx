@@ -58,54 +58,57 @@ export function BadgeGenerator() {
   };
 
   const handleDownloadPNG = async () => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    await document.fonts.ready;
 
-    // Final badge size
+    const canvas = document.createElement("canvas");
     canvas.width = 1080;
     canvas.height = 1440;
 
-    /* ========= 1. Draw USER IMAGE (BACKGROUND, CONTAIN) ========= */
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    /* ========= 1. DRAW USER IMAGE (CENTER-CROP INSIDE FRAME) ========= */
     if (imageUrl) {
       const userImg = new window.Image();
       userImg.src = imageUrl;
-      await new Promise((resolve) => (userImg.onload = resolve));
+      await new Promise((res) => (userImg.onload = res));
 
-      // Fit image inside full badge WITHOUT zoom
-      const scale = Math.min(
-        canvas.width / userImg.width,
-        canvas.height / userImg.height
-      );
+      const FRAME_X = 125;
+      const FRAME_Y = 188;
+      const FRAME_W = 795;
+      const FRAME_H = 660;
+
+      // COVER logic (same as xMidYMid slice)
+      const scale = Math.max(FRAME_W / userImg.width, FRAME_H / userImg.height);
 
       const drawW = userImg.width * scale;
       const drawH = userImg.height * scale;
 
-      const offsetX = (canvas.width - drawW) / 2;
-      const offsetY = (canvas.height - drawH) / 2;
+      const offsetX = FRAME_X + (FRAME_W - drawW) / 2;
+      const offsetY = FRAME_Y + (FRAME_H - drawH) / 2;
 
       ctx.drawImage(userImg, offsetX, offsetY, drawW, drawH);
     }
 
-    /* ========= 2. Draw SVG TEMPLATE ON TOP ========= */
+    /* ========= 2. DRAW SVG TEMPLATE ON TOP ========= */
     const bg = new window.Image();
     bg.src = "/images/main-20svg.svg";
-    await new Promise((resolve) => (bg.onload = resolve));
+    await new Promise((res) => (bg.onload = res));
 
     ctx.drawImage(bg, 0, 0, 1080, 1440);
 
-    /* ========= 3. Draw NAME ========= */
+    /* ========= 3. DRAW NAME ========= */
     ctx.fillStyle = "#000";
-    ctx.font = "600 36px Arial";
+    ctx.font = "600 60px VT323";
     ctx.textAlign = "center";
     ctx.fillText(name || "", 365, 1265);
 
-    /* ========= 4. Draw PLACE ========= */
-    ctx.font = "700 40px Arial";
-    ctx.textAlign = "left";
+    /* ========= 4. DRAW PLACE ========= */
+    ctx.font = "700 56px VT323";
+    ctx.textAlign = "center";
     ctx.fillText(place || "", 320, 1362);
 
-    /* ========= 5. Download ========= */
+    /* ========= 5. DOWNLOAD ========= */
     canvas.toBlob((blob) => {
       if (!blob) return;
       const url = URL.createObjectURL(blob);
