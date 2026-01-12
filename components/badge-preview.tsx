@@ -49,7 +49,7 @@ export function BadgePreview({ name, place, imageUrl }: BadgePreviewProps) {
 
         {/* ===== NAME ===== */}
         <text
-          x="365"
+          x="390"
           y="1265"
           textAnchor="middle"
           fill="#000"
@@ -62,7 +62,7 @@ export function BadgePreview({ name, place, imageUrl }: BadgePreviewProps) {
 
         {/* ===== PLACE ===== */}
         <text
-          x="320"
+          x="360"
           y="1362"
           textAnchor="middle"
           fill="#000"
