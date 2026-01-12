@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { BadgePreview } from "@/components/badge-preview";
 import { Download, Upload } from "lucide-react";
+import Image from "next/image";
 
 export function BadgeGenerator() {
   const [name, setName] = useState("");
@@ -67,7 +68,7 @@ export function BadgeGenerator() {
 
     /* ========= 1. Draw USER IMAGE (BACKGROUND, CONTAIN) ========= */
     if (imageUrl) {
-      const userImg = new Image();
+      const userImg = new window.Image();
       userImg.src = imageUrl;
       await new Promise((resolve) => (userImg.onload = resolve));
 
@@ -87,7 +88,7 @@ export function BadgeGenerator() {
     }
 
     /* ========= 2. Draw SVG TEMPLATE ON TOP ========= */
-    const bg = new Image();
+    const bg = new window.Image();
     bg.src = "/images/main-20svg.svg";
     await new Promise((resolve) => (bg.onload = resolve));
 
@@ -181,13 +182,43 @@ export function BadgeGenerator() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
-      <div className="mb-8 text-center">
+      {/* <div className="mb-8 text-center">
+        
+        <div className="flex items-center gap-3 mx-auto justify-center mb-4">
+          <Image
+            src="/logo.png" 
+            alt="Event Logo"
+            width={150}
+            height={150}
+            className="object-contain"
+          />
+        </div>
         <h1 className="text-4xl font-bold tracking-tight text-foreground mb-3 text-balance">
           Participant Badge Generator
         </h1>
         <p className="text-muted-foreground text-lg">
           Generate official event badges with photo, name, and location
         </p>
+      </div> */}
+      <div className="mb-8 flex items-center justify-center gap-6">
+        {/* Logo */}
+        <Image
+          src="/logo.png"
+          alt="Event Logo"
+          width={120}
+          height={120}
+          className="object-contain"
+        />
+
+        {/* Text */}
+        <div className="text-left">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground mb-2 text-balance">
+            Participant Badge Generator
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            Generate official event badges with photo, name, and location
+          </p>
+        </div>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
