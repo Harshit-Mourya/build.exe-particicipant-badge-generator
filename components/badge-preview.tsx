@@ -57,7 +57,7 @@ export function BadgePreview({ name, place, imageUrl }: BadgePreviewProps) {
           fontWeight="600"
           fontFamily="VT323"
         >
-          {name || "Your Name"}
+          {name || "John Doe"}
         </text>
 
         {/* ===== PLACE ===== */}
@@ -70,7 +70,7 @@ export function BadgePreview({ name, place, imageUrl }: BadgePreviewProps) {
           fontWeight="700"
           fontFamily="VT323"
         >
-          {place || ""}
+          {place || "Earth"}
         </text>
       </svg>
     </div>

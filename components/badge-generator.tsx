@@ -101,12 +101,12 @@ export function BadgeGenerator() {
     ctx.fillStyle = "#000";
     ctx.font = "600 60px VT323";
     ctx.textAlign = "center";
-    ctx.fillText(name || "", 365, 1265);
+    ctx.fillText(name || "John Doe", 365, 1265);
 
     /* ========= 4. DRAW PLACE ========= */
     ctx.font = "700 56px VT323";
     ctx.textAlign = "center";
-    ctx.fillText(place || "", 320, 1362);
+    ctx.fillText(place || "Earth", 320, 1362);
 
     /* ========= 5. DOWNLOAD ========= */
     canvas.toBlob((blob) => {
