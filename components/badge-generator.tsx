@@ -261,6 +261,9 @@ export function BadgeGenerator() {
                         <p className="text-sm text-muted-foreground">
                           JPEG or PNG only
                         </p>
+                        <p className="text-sm text-muted-foreground">
+                          [Preffered ratio: 1:1]
+                        </p>
                       </div>
                     </div>
                   </Button>
