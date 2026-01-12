@@ -51,7 +51,7 @@ export function BadgePreview({ name, place, imageUrl }: BadgePreviewProps) {
         </text>
 
         {/* ================= PLACE (AFTER I'm From) ================= */}
-        <text x="320" y="1362" fill="#000" fontSize="40" fontWeight="700">
+        <text x="220" y="1362" fill="#000" fontSize="40" fontWeight="700">
           {place || ""}
         </text>
       </svg>

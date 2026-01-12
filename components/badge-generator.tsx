@@ -183,10 +183,10 @@ export function BadgeGenerator() {
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-foreground mb-3 text-balance">
-          Event Badge Generator
+          Participant Badge Generator
         </h1>
         <p className="text-muted-foreground text-lg">
-          Create professional participant badges in seconds
+          Generate official event badges with photo, name, and location
         </p>
       </div>
 
@@ -197,7 +197,7 @@ export function BadgeGenerator() {
             <CardHeader>
               <CardTitle className="text-2xl">Badge Details</CardTitle>
               <CardDescription>
-                Enter participant information to generate the badge
+                Enter your information to generate the badge
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
