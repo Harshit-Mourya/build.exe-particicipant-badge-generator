@@ -185,24 +185,6 @@ export function BadgeGenerator() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
-      {/* <div className="mb-8 text-center">
-        
-        <div className="flex items-center gap-3 mx-auto justify-center mb-4">
-          <Image
-            src="/logo.png" 
-            alt="Event Logo"
-            width={150}
-            height={150}
-            className="object-contain"
-          />
-        </div>
-        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-3 text-balance">
-          Participant Badge Generator
-        </h1>
-        <p className="text-muted-foreground text-lg">
-          Generate official event badges with photo, name, and location
-        </p>
-      </div> */}
       <div className="mb-8 flex items-center justify-center gap-6">
         {/* Logo */}
         <Image
@@ -253,7 +235,7 @@ export function BadgeGenerator() {
                     type="button"
                     variant="outline"
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full h-auto py-6 border-2 border-dashed hover:border-primary hover:bg-muted/50 transition-colors"
+                    className="w-full h-auto py-6 border-2 border-dashed hover:border-primary hover:bg-muted/50 transition-colors cursor-pointer"
                   >
                     <div className="flex flex-col items-center gap-2">
                       <Upload className="h-8 w-8 text-muted-foreground" />
@@ -352,7 +334,7 @@ export function BadgeGenerator() {
                   onClick={handleDownloadPNG}
                   disabled={!name || !place || !imageUrl}
                   variant="outline"
-                  className="w-full h-12 font-semibold bg-transparent"
+                  className="w-full h-12 font-semibold bg-transparent cursor-pointer"
                 >
                   <Download className="mr-2 h-5 w-5" />
                   Download PNG
